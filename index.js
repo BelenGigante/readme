@@ -1,4 +1,4 @@
-
+//const generate = require("./utils/more")
 const inquirer = require('inquirer');
 const fs = require('fs');
 
@@ -41,6 +41,7 @@ inquirer.prompt([
         message: 'Which license did you use? ',
         choices: ['GPL','MIT','Apache','GNU','N/A'],
         name: 'license',
+        validate: (notBlank) => {if(notBlank) {return true}else {return'enter title to continue'}}
     },
     {
         type: 'input',
@@ -53,20 +54,30 @@ inquirer.prompt([
         name: 'eMail',
     },
  
-])
+]).then((data)=> {
+    const appTitle= `${data.title}`;
+    const appDescription= `${data.description}`;
+    const appInstalation= `${data.istalation}`;
+    const appUsage= `${data.usage}`;
+    const appContributing= `${data.contributing}`;
+    const appTest= `${data.test}`;
+    const appLicense= `${data.license}`;
+    const appGitHub= `${data.gitHub}`;
+    const appEmail= `${data.eMail}`;
+    console.log(appTitle);
+    });
+/*
+module.exports={
+    title,
+    description,
+    instalation,
+    usage,
+    contributing,
+    tests,
+    license,
+    gitHub,
+    eMail,
 
-/*const generate = require("./utils/more")
-
-inquirer.prompt([
-    {
-        type: 'input',
-        name: 'title',
-        message:'What is the title of your project?',
-
-    }
-])
-.then((response) => {
-    console.log(generate(response));
-})
+}
 
 */
