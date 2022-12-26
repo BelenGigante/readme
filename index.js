@@ -6,7 +6,7 @@ const fs = require('fs');
 inquirer.prompt([
     {
         type:'input',
-        message: 'Whats the name of your repository: ',
+        message: 'Whats the name of your repository? ',
         name: 'title',
         validate: (notBlank) => {if(notBlank) {return true}else {return'enter title to continue'}}
     },
@@ -36,7 +36,23 @@ inquirer.prompt([
         message: 'Enter test instructions: ',
         name: 'tests',
     },
-
+    {
+        type: 'input',
+        message: 'Which license did you use? ',
+        choices: ['GPL','MIT','Apache','GNU','N/A'],
+        name: 'license',
+    },
+    {
+        type: 'input',
+        message: 'Username (Github): ',
+        name: 'gitHub',
+    },
+    {
+        type: 'input',
+        message: 'E-mail: ',
+        name: 'eMail',
+    },
+ 
 ])
 
 /*const generate = require("./utils/more")
