@@ -1,6 +1,4 @@
-function generate(response){
 
-}
 
 function generateLicense(license) {
     return url+license;
@@ -13,28 +11,6 @@ function test(data){
     `
 
 }
-
-
-module.exports={
-    title,
-    description,
-    instalation,
-    usage,
-    contributing,
-    tests,
-    license,
-    gitHub,
-    eMail,
-}
-
-
-
-
-
-
-
-
-
 
 
 module.exports = function(data){

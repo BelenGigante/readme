@@ -1,4 +1,4 @@
-//const generate = require("./utils/more")
+const more = require("./utils/more")
 const inquirer = require('inquirer');
 const fs = require('fs');
 
@@ -37,7 +37,7 @@ inquirer.prompt([
         name: 'tests',
     },
     {
-        type: 'input',
+        type: 'list',
         message: 'Which license did you use? ',
         choices: ['GPL','MIT','Apache','GNU','N/A'],
         name: 'license',
@@ -53,19 +53,19 @@ inquirer.prompt([
         message: 'E-mail: ',
         name: 'eMail',
     },
+    {
+        type: 'list',
+        message: 'What is your preferred method of communication?',
+        name: 'contact',
+        choices: ['E-mail', 'Phone'],
+      },
  
-]).then((data)=> {
-    const appTitle= `${data.title}`;
-    const appDescription= `${data.description}`;
-    const appInstalation= `${data.istalation}`;
-    const appUsage= `${data.usage}`;
-    const appContributing= `${data.contributing}`;
-    const appTest= `${data.test}`;
-    const appLicense= `${data.license}`;
-    const appGitHub= `${data.gitHub}`;
-    const appEmail= `${data.eMail}`;
-    console.log(appTitle);
-    });
+]).then((data) =>{
+
+
+  });
+
+
 /*
 module.exports={
     title,
