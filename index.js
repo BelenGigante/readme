@@ -75,7 +75,7 @@ inquirer.prompt([
     ## Contact
     *GitHub : ${data.gitHub}
     *E-mail : ${data.eMail}`;
-    const filename = `README ${data.title.toLowerCase().split(' ').join('')}.md`;
+    const filename = `${data.toLowerCase().split(' ').join('')}.json`;
     fs.writeFile(filename, JSON.stringify(data, null, '\t'), (err) => {
         if (err) { console.log(err) } else { console.log('Readme file generated'); }
 
