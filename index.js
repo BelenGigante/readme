@@ -53,47 +53,29 @@ inquirer.prompt([
         message: 'E-mail: ',
         name: 'eMail',
     },
-    {
-        type: 'list',
-        message: 'What is your preferred method of communication?',
-        name: 'contact',
-        choices: ['E-mail', 'GitHub'],
-    },
 
 ]).then((data) => {
-    const template = `# ${data.title}
-    ## Instalation
-    ${data.instalation}
-    ## Usage
-    ${data.usage}
-    ## Contributions
-    ${data.contributing}
-    ## Test
-    ${data.tests}
-    ## License
-    ${data.license}
-    ## Contact
-    *GitHub : ${data.gitHub}
-    *E-mail : ${data.eMail}`;
-    const filename = `${data.title.toLowerCase().split(' ').join('')}.json`;
-    fs.writeFile(filename, JSON.stringify(data, null, '\t'), (err) => {
-        if (err) { console.log(err) } else { console.log('Readme file generated'); }
+const template = `
+# Title
+${data.title}
+## Description
+${data.description}
+## Instalation
+${data.instalation}
+## Usage
+${data.usage}
+## Contributions
+${data.contributing}
+## Test
+${data.tests}
+## License
+${data.license}
+## Contact
+### GitHub : 
+${data.gitHub}
+### E-mail : 
+${data.eMail}`;
+    fs.writeFileSync('Generated_README.md',template), (err) => {
+        if (err) { console.log(err) } else { console.log('Readme file generated') }}
+    })
 
-    });
-})
-
-/*
-module.exports={
-    title,
-    description,
-    instalation,
-    usage,
-    contributing,
-    tests,
-    license,
-    gitHub,
-    eMail,
-
-}
-
-*/
