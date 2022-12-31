@@ -1,4 +1,3 @@
-//const more = require("./utils/more")
 const inquirer = require('inquirer');
 const fs = require('fs');
 
@@ -39,7 +38,7 @@ inquirer.prompt([
     {
         type: 'list',
         message: 'Which license did you use? ',
-        choices: ['GPLv3', 'MIT', 'Apache', 'Find license'],
+        choices: ['GPLv3', 'MIT', 'Apache', 'None'],
         name: 'license',
     },
     {
@@ -64,7 +63,7 @@ const template = `
 4. [Contributions](#contributions)
 5. [Test](#test)
 6. [License](#license)
-7. [Contact/Questions](#contact/questions)
+7. [Contact](#contact)
 ## Description
 ${data.description}
 ## Instalation
@@ -75,10 +74,12 @@ ${data.usage}
 ${data.contributing}
 ## Test
 ${data.tests}
-## Contact/Questions
+## License : 
+${data.license}
+## Contact
 GitHub : https://www.github.com/${data.gitHub}    
 E-mail : ${data.eMail}
-### License : ${data.license}
+
 [${data.title}]
 Copyright (C) [2022] [${data.gitHub}]`;
     fs.writeFileSync('Generated_README.md',template), (err) => {
