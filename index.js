@@ -1,4 +1,4 @@
-const more = require("./utils/more")
+//const more = require("./utils/more")
 const inquirer = require('inquirer');
 const fs = require('fs');
 
@@ -37,9 +37,14 @@ inquirer.prompt([
         name: 'tests',
     },
     {
+        type: 'input',
+        message: 'Enter your question and e-mail address : ',
+        name: 'questions',
+    },
+    {
         type: 'list',
         message: 'Which license did you use? ',
-        choices: ['GPL', 'MIT', 'Apache', 'GNU', 'N/A'],
+        choices: ['GPLv3', 'MIT', 'Apache', 'N/A'],
         name: 'license',
         validate: (notBlank) => { if (notBlank) { return true } else { return 'enter title to continue' } }
     },
@@ -56,8 +61,17 @@ inquirer.prompt([
 
 ]).then((data) => {
 const template = `
-# Title
-${data.title}
+[![License: MIT](https://img.shields.io/badge/License-"${data.license}"-yellow.svg)](https://opensource.org/licenses/${data.license})
+# ${data.title}
+## Table of contents
+1. [Description](#description)
+2. [Instalation](#instalation)
+3. [Usage](#usage)
+4. [Contributions](#contributions)
+5. [Test](#test)
+6. [Questions](#questions)
+7. [License](#license)
+8. [Contact](#contact)
 ## Description
 ${data.description}
 ## Instalation
@@ -68,13 +82,15 @@ ${data.usage}
 ${data.contributing}
 ## Test
 ${data.tests}
-## License
-${data.license}
+## Questions
+(Answers will be returned via E-mail)
+${data.questions}
 ## Contact
-### GitHub : 
-${data.gitHub}
-### E-mail : 
-${data.eMail}`;
+GitHub : https://www.github.com/${data.gitHub}    
+E-mail : ${data.eMail}
+### License : ${data.license}
+[${data.title}]
+Copyright (C) [2022] [${data.gitHub}]`;
     fs.writeFileSync('Generated_README.md',template), (err) => {
         if (err) { console.log(err) } else { console.log('Readme file generated') }}
     })
