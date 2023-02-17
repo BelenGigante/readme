@@ -82,7 +82,7 @@ E-mail : ${data.eMail}
 
 [${data.title}]
 Copyright (C) [2022] [${data.gitHub}]`;
-    fs.writeFileSync('Generated_README.md',template), (err) => {
+    fs.writeFileSync('README.md',template), (err) => {
         if (err) { console.log(err) } else { console.log('Readme file generated') }}
     })
 
