@@ -11,7 +11,7 @@ This readme file will be replaced by your generated README.md.
 
 ## Instructions
 
-* Refer to the [Readme demostration video](./assets/video/readme_video.webm) for instructions.
+* Refer to the [Readme demostration video](./assets/video/readme%20generator.webm) for instructions.
 
 ## Visuals
 
